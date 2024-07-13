@@ -220,7 +220,7 @@ impl<S: Signer + 'static, PC: ProgramClient<ProgramRpcClientSendTransaction> + '
 }
 
 #[cfg(test)]
-mod test {
+pub mod test {
     use std::sync::Arc;
 
     use solana_client::nonblocking::rpc_client::RpcClient;
@@ -233,7 +233,7 @@ mod test {
     use crate::raydium_client::{RaydiumCliemt, LAMPORTS_PER_SOLANA};
 
     #[tokio::test]
-    async fn test_usdc_sol_swap() {
+    pub async fn test_usdc_sol_swap() {
         let payer =
             Keypair::read_from_file("/Users/muhdsyahrulnizam/.config/solana/id.json").unwrap();
         let client = Arc::new(RpcClient::new_with_commitment(
@@ -267,7 +267,7 @@ mod test {
         );
     }
     #[tokio::test]
-    async fn test_sol_usdc_swap() {
+    pub async fn test_sol_usdc_swap() {
         let payer =
             Keypair::read_from_file("/Users/muhdsyahrulnizam/.config/solana/id.json").unwrap();
         let client = Arc::new(RpcClient::new_with_commitment(
